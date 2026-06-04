@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #111;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#game-container {
+    position: relative;
+    width: 800px;
+    height: 400px;
+    background: linear-gradient(to bottom, #1a0b2e, #4c1c5c, #e25f5f);
+    background-size: 200% 100%;
+    animation: scrollBackground 10s linear infinite;
+    border: 4px solid #fff;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    overflow: hidden;
+}
+
+@keyframes scrollBackground {
+    0% { background-position: 0% 0%; }
+    100% { background-position: -200% 0%; }
+}
+
+#dragon {
+    position: absolute;
+    bottom: 20px;
+    left: 50px;
+    width: 60px;
+    height: 60px;
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: bottom 0.1s ease;
+    z-index: 10;
+    /* Flips the dragon emoji horizontally to face right */
+    transform: scaleX(-1); 
+}
+
+.obstacle {
+    position: absolute;
+    bottom: 20px;
+    left: 800px;
+    width: 40px;
+    height: 60px;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#ui-layer {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    z-index: 20;
+}
+
+#instructions {
+    font-size: 14px; 
+    align-self: center;
+}
+
+#game-over-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    z-index: 30;
+}
+
+#game-over-screen.hidden {
+    display: none;
+}
+
+h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+    color: #ff4a4a;
+    text-shadow: 0 0 10px rgba(255,74,74,0.5);
+}
+
+p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #ddd;
+}
+
+button {
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    background: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
+
+button:hover {
+    background: #27ae60;
+    transform: scale(1.05);
+}
